@@ -3,7 +3,7 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 
-from .blocks import (BridgeConnection, LayerStack,
+from blocks import (BridgeConnection, LayerStack,
                           PositionwiseFeedForward, ResidualConnection, clone)
 
 
@@ -106,11 +106,11 @@ class EncoderLayer(nn.Module):
 
      return X
 
-class Enoder(nn.Module):
+class Encoder(nn.Module):
 
-   def __init__(self, emb, dout, head df, layers):
+   def __init__(self, emb, dout, head, df, layers):
      super(Enoder, self).__init__()
-     self.encoder_layer = clone(EncoderLayer(emb, dout, head, df) layers)
+     self.encoder_layer = clone(EncoderLayer(emb, dout, head, df), layers)
         
    def forward(self, x, src_mask):
      '''
@@ -119,10 +119,10 @@ class Enoder(nn.Module):
         out:
             # x: (B, S, d_model) which will be used as Q and K in decoder
      '''
-   for layer in self.encoder_layers:
-       x = layer(x, src_mask)
+     for layer in self.encoder_layers:
+         x = layer(x, src_mask)
     
-   return x
+     return x
 
 
 
@@ -154,11 +154,11 @@ class DecoderLayer(nn.Module):
 
      return x
 
-class Decder(nn.Module):
+class Decoder(nn.Module):
 
-   def __init__(self, emb, dout, head df, layers):
+   def __init__(self, emb, dout, head, df, layers):
      super(Decder, self).__init__()
-     self.decoder_layer = clone(EncoderLayer(emb, dout, head, df) layers)
+     self.decoder_layer = clone(EncoderLayer(emb, dout, head, df), layers)
         
    def forward(self, x, memory, src_mask, tgt_mask): 
      '''
@@ -167,22 +167,9 @@ class Decder(nn.Module):
         out:
             # x: (B, S, d_model) which will be used as Q and K in decoder
      '''
-   for layer in self.decoder_layers:
-       x = layer(x, memory, src_mask, tgt_mask)
+     for layer in self.decoder_layers:
+         x = layer(x, memory, src_mask, tgt_mask)
     
-   return x
-
-
-
-
-   
-
-
-
-  
-
-
-
-
+     return x
 
 
