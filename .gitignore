@@ -2,4 +2,4 @@ __pycache__/
 .git/
 .swp
 download (39).mp4
-./i3d/checkpoints
+i3d/checkpoints/*
