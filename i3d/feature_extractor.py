@@ -30,7 +30,7 @@ def parallel_feature_extraction(args):
     '''Distributes the feature extraction in a embarasingly-parallel fashion. Specifically,
     it divides the dataset (list of video paths) among all specified devices evenly.'''
 
-    from i3d.extract_i3d import ExtractI3D  # defined here to avoid import errors
+    from extract_i3d import ExtractI3D  # defined here to avoid import errors
     extractor = ExtractI3D(args)
 
     video_paths = form_list_from_user_input(args)

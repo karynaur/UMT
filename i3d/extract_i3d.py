@@ -44,8 +44,8 @@ class ExtractI3D(torch.nn.Module):
         self.extraction_fps = args.extraction_fps
         self.step_size = args.step_size
         self.stack_size = args.stack_size
-        self.show_kinetics_pred = args.show_kinetics_pred
-        self.kinetics_class_labels = args.kinetics_class_labels
+       # self.show_kinetics_pred = args.show_kinetics_pred
+       # self.kinetics_class_labels = args.kinetics_class_labels
         self.keep_frames = args.keep_frames
         self.on_extraction = args.on_extraction
         self.tmp_path = args.tmp_path
