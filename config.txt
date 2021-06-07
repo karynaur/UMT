@@ -1,0 +1,25 @@
+cfg:
+    emb : dimentiona at each layer
+    df : no of internal layers in feed_forward
+    d_video : no of raw features in input video
+    dout : [0,1]
+    heads : no of heads
+    layers : no of layers
+    unfreeze_word_emb : for word embeddings
+    video_features_path
+    video_features_name
+    pad_features_up_to
+    start_token
+    end_toekn
+    pad_token
+    min_freq_caps
+    word_emb_caps
+    train_meta_path
+    val_1_meta_path
+    val_2_meta_path
+    device
+    train_batch_size
+    inference_batch_size
+    video_features_name
+
+

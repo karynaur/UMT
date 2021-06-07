@@ -9,17 +9,8 @@ from utils import Generator
 from blocks import (BridgeConnection, FeatureEmbedder, Identity,
                           PositionalEncoder, VocabularyEmbedder)
 from encoder_decoder import Encoder, Decoder
-"""
-cfg:
-    emb : dimentiona at each layer
-    df : no of internal layers in feed_forward
-    d_video : no of raw features in input video
-    dout : [0,1]
-    heads : no of heads
-    layers : no of layers
-    unfreeze_word_emb : for word embeddings
 
-"""
+
 class Transformer(nn.Module):
 
   def __init__(self, dataset, cfg):
