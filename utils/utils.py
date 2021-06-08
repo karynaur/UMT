@@ -2,6 +2,9 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 
+def get_lr(optimizer):
+    for param_group in optimizer.param_groups:
+        return param_group['lr']
 
 class LabelSmoothing(nn.Module):
     
@@ -31,4 +34,5 @@ class LabelSmoothing(nn.Module):
             dist.index_fill_(0, mask.squeeze(), 0)
             
         return F.kl_div(pred, dist, reduction='sum')
+
 

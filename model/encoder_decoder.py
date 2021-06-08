@@ -139,7 +139,7 @@ class DecoderLayer(nn.Module):
      self.enc_att = MultiHeadAttention(emb, H)
      self.feed_forward = PositionwiseFeedForward(emb, df, dout)
 
-   def forward(self, X, menory, src_mask, tgt_mask):
+   def forward(self, X, memory, src_mask, tgt_mask):
      """
          parameters:
             X: size()
