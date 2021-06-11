@@ -30,12 +30,12 @@ def fill_missing_features(method, feature_size):
         return torch.zeros(1, feature_size).float()
 
 
-def load_features(cfg, features, vid_id, start, end, duration, pad_idx):
+def load_features(path, features, vid_id, start, end, duration, pad_idx):
    
   stacks = {}
 
-  stack_rgb = torch.fromnumpy(np.load(os.path.join(cfg.video_feature_path, f'{video_id}_rgb.npy'))).float()
-  stack_flow = torch.fromnumpy(np.load(os.path.join(cfg.video_feature_path, f'{video_id}_flow.npy'))).float()
+  stack_rgb = torch.fromnumpy(np.load(os.path.join(path, f'{video_id}_rgb.npy'))).float()
+  stack_flow = torch.fromnumpy(np.load(os.path.join(path, f'{video_id}_flow.npy'))).float()
   
   stack_rgb = crop_seg(stack_rgb, start, end, duration)
   stack_flow = crop_seg(stack_flow, start, end, duration)
